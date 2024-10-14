@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://mx2ntkgufpx8"]
+
+[ext_resource type="Script" path="res://actors/Animals/animal.gd" id="1_xw43t"]
+[ext_resource type="PackedScene" uid="uid://d3cgfx0ebebtv" path="res://objects/hitbox/hit_box.tscn" id="2_0pcth"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vc6ml"]
+
+[node name="AnimalTemplate" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 67
+script = ExtResource("1_xw43t")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="IdleTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="WanderTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="DisappearAfterDeathTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="FleeTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="HitBox" parent="." instance=ExtResource("2_0pcth")]
+
+[node name="MeatSpawnMarker" type="Marker3D" parent="."]
+
+[node name="EyesMarker" type="Marker3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="AttackHitArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="VisionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
+shape = SubResource("SphereShape3D_vc6ml")
+
+[connection signal="timeout" from="Timers/IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="Timers/WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="Timers/DisappearAfterDeathTimer" to="." method="_on_disappear_after_death_timer_timeout"]
+[connection signal="timeout" from="Timers/FleeTimer" to="." method="_on_flee_timer_timeout"]
+[connection signal="register_hit" from="HitBox" to="." method="take_hit"]
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]

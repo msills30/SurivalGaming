@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ciwoldybdn40v"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.222054, 0.877462, 0.877277, 0.564706)

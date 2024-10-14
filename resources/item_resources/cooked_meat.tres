@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://chp1mdfnfshvb"]
+
+[ext_resource type="Texture2D" uid="uid://blay241n8xvqn" path="res://textures/item_icons/cooked_meat.png" id="1_ihneb"]
+[ext_resource type="Script" path="res://resources/item_resources/consumable_item_resource.gd" id="2_m0j7l"]
+
+[resource]
+script = ExtResource("2_m0j7l")
+health_change = 20
+energy_change = 20
+item_key = 9
+display_name = "Cooked Meat"
+icon = ExtResource("1_ihneb")
+description = "A tasty yummy meat
+"
+is_equippable = true

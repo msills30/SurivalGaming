@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://cewe8sdyi7vqy"]
+
+[ext_resource type="Texture2D" uid="uid://cym5u6k545xcq" path="res://textures/item_icons/fruit.png" id="1_mrxlm"]
+[ext_resource type="Script" path="res://resources/item_resources/consumable_item_resource.gd" id="2_jqi7n"]
+
+[resource]
+script = ExtResource("2_jqi7n")
+health_change = 5
+energy_change = 10
+item_key = 4
+display_name = "Fruit"
+icon = ExtResource("1_mrxlm")
+description = "A tasty yummy fruit no health problems this time"
+is_equippable = true

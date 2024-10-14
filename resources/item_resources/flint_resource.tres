@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dimuwarhs0lcj"]
+
+[ext_resource type="Texture2D" uid="uid://bfwwh60rwyqi2" path="res://textures/item_icons/flintstone.png" id="1_mw4bn"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_68g0s"]
+
+[resource]
+script = ExtResource("2_68g0s")
+item_key = 7
+display_name = "Flint"
+icon = ExtResource("1_mw4bn")
+description = "Solid flint  perfect for starting fires."
+is_equippable = false

@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://civj0ip748e3i"]
+
+[ext_resource type="Texture2D" uid="uid://bqqfyoajbsvkh" path="res://textures/circle32.png" id="1_hd6lp"]
+[ext_resource type="Script" path="res://ui/hud/hotbar_ui.gd" id="2_0ddnu"]
+[ext_resource type="PackedScene" uid="uid://c66kw70biqeij" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_bvuud"]
+[ext_resource type="Script" path="res://ui/hud/player_stats_container.gd" id="4_32oyd"]
+[ext_resource type="Texture2D" uid="uid://ciel76hqlmf0h" path="res://textures/square32.png" id="5_1exxw"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrossHair" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hd6lp")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HotBarSlotContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+script = ExtResource("2_0ddnu")
+
+[node name="HotBarSlot" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot2" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot3" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot4" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot5" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot6" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot7" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot8" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="HotBarSlot9" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_bvuud")]
+layout_mode = 2
+
+[node name="PlayerStatsContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+script = ExtResource("4_32oyd")
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_1exxw")
+texture_progress = ExtResource("5_1exxw")
+tint_under = Color(0.203922, 0.203922, 0.203922, 1)
+tint_progress = Color(0.398078, 0.83919, 0, 1)
+
+[node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_1exxw")
+texture_progress = ExtResource("5_1exxw")
+tint_under = Color(0.203922, 0.203922, 0.203922, 1)
+tint_progress = Color(0.957849, 0.628918, 0.390895, 1)

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CraftingBluePrintResource" load_steps=7 format=3 uid="uid://dm173l3xo750s"]
+
+[ext_resource type="Script" path="res://resources/crafting_blueprint_resources/blueprint_cost_data.gd" id="1_inr41"]
+[ext_resource type="Script" path="res://resources/crafting_blueprint_resources/crafting_blueprint_resource.gd" id="2_4ut2l"]
+
+[sub_resource type="Resource" id="Resource_k3yp5"]
+script = ExtResource("1_inr41")
+item_key = 0
+amount = 2
+
+[sub_resource type="Resource" id="Resource_vyr5g"]
+script = ExtResource("1_inr41")
+item_key = 6
+amount = 1
+
+[sub_resource type="Resource" id="Resource_l1kt3"]
+script = ExtResource("1_inr41")
+item_key = 7
+amount = 1
+
+[sub_resource type="Resource" id="Resource_tgnfl"]
+script = ExtResource("1_inr41")
+item_key = 1
+amount = 1
+
+[resource]
+script = ExtResource("2_4ut2l")
+item_key = 15
+cost = Array[ExtResource("1_inr41")]([SubResource("Resource_k3yp5"), SubResource("Resource_vyr5g"), SubResource("Resource_l1kt3"), SubResource("Resource_tgnfl")])
+need_multitool = true
+need_tinderbox = false

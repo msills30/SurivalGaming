@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dh6qj1xau1mnb"]
+
+[ext_resource type="Texture2D" uid="uid://cows485wnofdq" path="res://textures/item_icons/plant.png" id="1_rbv2m"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_qti6l"]
+
+[resource]
+script = ExtResource("2_qti6l")
+item_key = 2
+display_name = "Plant"
+icon = ExtResource("1_rbv2m")
+description = "A green plant; perfectly safe to consume or is it????? (it is)."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://d0pwet1bo6y8s"]
+
+[ext_resource type="Script" path="res://resources/item_resources/weapon_item_resource.gd" id="1_617dj"]
+[ext_resource type="Texture2D" uid="uid://dpcl8e3xerthf" path="res://textures/item_icons/axe.png" id="1_lf46f"]
+
+[resource]
+script = ExtResource("1_617dj")
+damage = 20.0
+range = 1.5
+item_key = 10
+display_name = "Axe"
+icon = ExtResource("1_lf46f")
+description = "Hacking and chopping your worries and problems away."
+is_equippable = true

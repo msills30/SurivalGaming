@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://ccxjt8hkf1oog"]
+
+[ext_resource type="Texture2D" uid="uid://dwkvug4r0iphx" path="res://textures/item_icons/torch.png" id="1_o6fhq"]
+[ext_resource type="Script" path="res://resources/item_resources/weapon_item_resource.gd" id="2_ye4dg"]
+
+[resource]
+script = ExtResource("2_ye4dg")
+damage = 20.0
+range = 1.5
+energy_change_per_use = -0.5
+item_key = 16
+display_name = "Torch"
+icon = ExtResource("1_o6fhq")
+description = "Let there be light
+"
+is_equippable = true

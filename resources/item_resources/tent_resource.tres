@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cps3onekkdgmy"]
+
+[ext_resource type="Texture2D" uid="uid://imk7qs0ms5rt" path="res://textures/item_icons/tent.png" id="1_f2xv8"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_uiejq"]
+
+[resource]
+script = ExtResource("2_uiejq")
+item_key = 17
+display_name = "Tent"
+icon = ExtResource("1_f2xv8")
+description = "No bed, No Hotel will be able to compete with the conforts of living in a tent."
+is_equippable = true

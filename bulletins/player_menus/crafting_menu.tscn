@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyknyojt5p5k2"]
+
+[ext_resource type="PackedScene" uid="uid://gt5mq2q0p82p" path="res://bulletins/player_menus/player_menu_base.tscn" id="1_bd706"]
+[ext_resource type="Script" path="res://bulletins/player_menus/crafting_menu.gd" id="2_7d2uw"]
+[ext_resource type="PackedScene" uid="uid://wp4uhaso7iw5" path="res://ui/custom_nodes/crafting_button.tscn" id="3_0gj1p"]
+
+[node name="CraftingMenu" instance=ExtResource("1_bd706")]
+script = ExtResource("2_7d2uw")
+crafting_button_scene = ExtResource("3_0gj1p")
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/UtlityNinePatchRect/MarginContainer/VBoxContainer/NinePatchRect" index="0"]
+text = "Crafting "
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtlityNinePatchRect/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CraftingButtonContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtlityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 3

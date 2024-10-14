@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://ccwxv5dvwr7sa"]
+
+[ext_resource type="Texture2D" uid="uid://dn78rrkggv0yj" path="res://textures/item_icons/pickaxe.png" id="1_e4o6v"]
+[ext_resource type="Script" path="res://resources/item_resources/weapon_item_resource.gd" id="2_pahcw"]
+
+[resource]
+script = ExtResource("2_pahcw")
+damage = 20.0
+range = 1.5
+energy_change_per_use = -0.5
+item_key = 11
+display_name = "Pickaxe"
+icon = ExtResource("1_e4o6v")
+description = "Learn to mine coal
+"
+is_equippable = true

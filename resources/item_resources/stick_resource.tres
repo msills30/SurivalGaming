@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c3u3ta0uyfcsy"]
+
+[ext_resource type="Texture2D" uid="uid://6pvacs6g3him" path="res://textures/item_icons/stick.png" id="1_4mege"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="1_ukqns"]
+
+[resource]
+script = ExtResource("1_ukqns")
+item_key = 0
+display_name = "Stick"
+icon = ExtResource("1_4mege")
+description = "No greater weapon than the first weapon used by mankind, the stick"

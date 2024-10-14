@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bc42et56wm1qt"]
+
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="1_730tm"]
+[ext_resource type="Texture2D" uid="uid://b1ov3xsdrlffs" path="res://textures/item_icons/stone.png" id="1_rt2nf"]
+
+[resource]
+script = ExtResource("1_730tm")
+item_key = 1
+display_name = "Stone"
+icon = ExtResource("1_rt2nf")
+description = "Rock solid perfect for grinding, throwing at your problems and at your friends ( I think)."
+is_equippable = false
