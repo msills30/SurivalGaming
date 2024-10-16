@@ -23,11 +23,16 @@ func _ready() -> void:
 	for hotbarslot_slot in get_tree().get_nodes_in_group("HotBarSlots"):
 		hotbarslot_slot.mouse_entered.connect(show_item_info.bind(hotbarslot_slot))
 		hotbarslot_slot.mouse_exited.connect(hide_item_info)
+	
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
+
 
 func close() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	EventSystem.BUL_destroy_bulletin.emit(BulletinConfig.Keys.CraftingMenu)
 	EventSystem.PLA_unfreeze_player.emit()
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
+
 
 func show_item_info(inventory_slot : InventorySlot) -> void:
 	var item_key = inventory_slot.item_key

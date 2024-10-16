@@ -103,3 +103,4 @@ func hide_crafting_info() -> void:
 func crafting_button_pressed(item_key : ItemConfig.Keys) -> void:
 	EventSystem.INV_delete_crafting_blueprint_cost.emit(ItemConfig.get_crafting_blueprint_resource(item_key).cost)
 	EventSystem.INV_add_item.emit(item_key)
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.Craft)

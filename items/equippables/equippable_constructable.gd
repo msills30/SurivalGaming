@@ -63,9 +63,8 @@ func try_to_construct() -> void:
 		tform
 	)
 	is_constructing = true
-
-
-
+	
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.Build)
 
 
 func destroy_self() -> void:

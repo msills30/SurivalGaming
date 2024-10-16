@@ -1,3 +1,4 @@
+extends AudioStreamPlayer
 class_name MusicConfig
 
 enum Keys {
