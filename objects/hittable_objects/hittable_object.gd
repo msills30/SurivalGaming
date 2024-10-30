@@ -15,7 +15,8 @@ func _ready() -> void:
 
 func register_hit(weapon_item_resource:WeaponItemResource) -> void:
 	if not attributes.weapon_filter.is_empty() and not weapon_item_resource.item_key in attributes.weapon_filter:
-		return	
+		return
+		
 	
 	current_health -= weapon_item_resource.damage
 	

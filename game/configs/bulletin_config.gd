@@ -3,7 +3,8 @@ class_name BulletinConfig
 enum Keys {
 	InteractionPrompt,
 	CraftingMenu,
-	CookingMenu
+	CookingMenu,
+	PauseMenu
 }
 
 static func get_bulletin(key: Keys) -> Bulletin:
@@ -12,7 +13,8 @@ static func get_bulletin(key: Keys) -> Bulletin:
 const BULLETINPATHS := {
 	Keys.InteractionPrompt : "res://bulletins/interaction_prompt.tscn",
 	Keys.CraftingMenu : "res://bulletins/player_menus/crafting_menu.tscn",
-	Keys.CookingMenu : "res://bulletins/cooking_menu/cooking_menu.tscn"
+	Keys.CookingMenu : "res://bulletins/cooking_menu/cooking_menu.tscn",
+	Keys.PauseMenu : "res://bulletins/pause_menu.tscn"
 }
 
 

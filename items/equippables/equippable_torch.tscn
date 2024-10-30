@@ -156,3 +156,9 @@ lifetime = 0.5
 visibility_aabb = AABB(-0.801816, -0.732843, -0.793195, 1.60363, 1.46569, 1.58639)
 process_material = SubResource("ParticleProcessMaterial_8twmp")
 draw_pass_1 = SubResource("QuadMesh_d741v")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshHolder/Torch" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50673, 0)
+unit_size = 3.0
+autoplay = true
+bus = &"SFX"

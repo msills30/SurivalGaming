@@ -4,6 +4,9 @@ extends Node
 
 signal BUL_create_bulletin
 signal BUL_destroy_bulletin
+signal BUL_remove_all_bulletins
+
+signal STA_change_stage
 
 signal INV_try_to_pickup_item
 signal INV_ask_update_inventory
@@ -21,6 +24,7 @@ signal PLA_change_energy
 signal PLA_updated_energy
 signal PLA_change_health
 signal PLA_updated_health
+signal PLA_player_sleep
 
 signal EQU_hotkey_pressed
 signal EQU_equip_item
@@ -31,6 +35,13 @@ signal EQU_delete_equip_item
 signal SPA_spawn_scene
 
 signal SFX_play_sfx
+signal SFX_play_dynamic_sfx
 
+signal MUS_play_music
 
+signal GAM_fast_forward_day_night_anim
+signal Gam_fade_in
+signal Gam_fade_out
 
+signal HUD_hide_hud
+signal HUD_show_hud

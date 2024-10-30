@@ -6,6 +6,8 @@ class_name InteractableCooker
 @onready var food_visual_holder: Marker3D = $FoodVisualHolder
 @onready var fire_particles: GPUParticles3D = $GPUParticles3D
 @onready var fire_light: OmniLight3D = $OmniLight3D
+@onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 
 #This is somewhat optional we added a ready function and turn off omnilight3d 
 # as shown on the right and turned off the "emitting"
@@ -26,6 +28,7 @@ func _ready() -> void:
 	if fire_always_on:
 		fire_particles.emitting = true
 		fire_light.show()
+		audio_stream_player.play()
 
 
 func start_interaction() -> void:
@@ -69,6 +72,7 @@ func start_cooking() -> void:
 	if not fire_always_on:
 		fire_particles.emitting = true
 		fire_light.show()
+		audio_stream_player.play()
 
 
 func cooking_finished() -> void:
@@ -78,6 +82,7 @@ func cooking_finished() -> void:
 	if not fire_always_on:
 		fire_particles.emitting = false
 		fire_light.hide()
+		audio_stream_player.stop()
 	
 	food_visual_holder.add_child(cooking_recipe.cooked_item_visuals.instantiate())
 

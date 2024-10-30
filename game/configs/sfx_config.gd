@@ -6,7 +6,16 @@ enum Keys {
 	Craft,
 	Build,
 	WeaponSwoosh,
-	Eating
+	Eating,
+	TreeHit,
+	BoulderHit,
+	CowHurt,
+	CowAttack,
+	WolfHurt,
+	WolfAttack,
+	FootStep,
+	Jump,
+	GetInTent
 }
 
 const FILE_PATH := {
@@ -15,7 +24,16 @@ const FILE_PATH := {
 	Keys.Craft : "res://audio/sfx/craft.wav",
 	Keys.Build : "res://audio/sfx/build.wav",
 	Keys.WeaponSwoosh : "res://audio/sfx/weapon_swoosh.wav",
-	Keys.Eating : "res://audio/sfx/eat.wav"
+	Keys.Eating : "res://audio/sfx/eat.wav",
+	Keys.TreeHit : "res://audio/sfx/tree_hit.wav",
+	Keys.BoulderHit : "res://audio/sfx/boulder_hit.wav",
+	Keys.CowHurt : "res://audio/sfx/cow_hurt.wav",
+	Keys.CowAttack : "res://audio/sfx/cow_attack.wav",
+	Keys.WolfHurt : "res://audio/sfx/wolf_hurt.wav",
+	Keys.WolfAttack : "res://audio/sfx/wolf_attack.wav",
+	Keys.Jump : "res://audio/sfx/jump_land.wav",
+	Keys.FootStep : "res://audio/sfx/footstep.wav",
+	Keys.GetInTent : "res://audio/sfx/go_in_tent.wav"
 }
 
 

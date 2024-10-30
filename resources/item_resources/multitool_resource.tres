@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://chgdpx8ikkgv8"]
 
-[ext_resource type="Texture2D" uid="uid://6pvacs6g3him" path="res://textures/item_icons/stick.png" id="1_k2qq3"]
+[ext_resource type="Texture2D" uid="uid://dv1i48ux0icn3" path="res://textures/item_icons/multitool.png" id="1_5kstx"]
 [ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_xlqgi"]
 
 [resource]
 script = ExtResource("2_xlqgi")
-item_key = 0
-display_name = "Stick"
-icon = ExtResource("1_k2qq3")
-description = "No greater weapon than the first weapon used by mankind, the stick"
+item_key = 13
+display_name = "Multitool"
+icon = ExtResource("1_5kstx")
+description = "A swiss army knife would envy this magnificant machine, neigh art."
 is_equippable = false
