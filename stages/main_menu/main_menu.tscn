@@ -42,7 +42,7 @@ fog_light_color = Color(0.210757, 0.23209, 0.265627, 1)
 fog_light_energy = 0.07
 fog_density = 0.1
 
-[sub_resource type="Resource" id="Resource_1eua6"]
+[sub_resource type="Resource" id="Resource_qk636"]
 script = ExtResource("5_wklv7")
 amount = 150
 enabled = true
@@ -51,7 +51,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_0fh1p"]
+[sub_resource type="Resource" id="Resource_b4h6l"]
 script = ExtResource("6_h4mb6")
 iterations = 1
 offset_step = 1.0
@@ -63,7 +63,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_w85wi"]
+[sub_resource type="Resource" id="Resource_fdehw"]
 script = ExtResource("7_dnc1m")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 1.0
@@ -79,7 +79,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jo3tf"]
+[sub_resource type="Resource" id="Resource_mq4j5"]
 script = ExtResource("8_or6k3")
 rotation = Vector3(0, 360, 0)
 snap_angle = Vector3(0, 0, 0)
@@ -89,24 +89,24 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_uvrq3"]
+[sub_resource type="Resource" id="Resource_xvixy"]
 script = ExtResource("4_a8lba")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_1eua6"), SubResource("Resource_0fh1p"), SubResource("Resource_w85wi"), SubResource("Resource_jo3tf")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qk636"), SubResource("Resource_b4h6l"), SubResource("Resource_fdehw"), SubResource("Resource_mq4j5")])
 
 [sub_resource type="Resource" id="Resource_mei8b"]
 script = ExtResource("10_ui53w")
 size = Vector3(72.3343, 1, 85.786)
 
-[sub_resource type="Resource" id="Resource_bgu5e"]
+[sub_resource type="Resource" id="Resource_fg7hr"]
 script = ExtResource("5_wklv7")
-amount = 40000
+amount = 6000
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_s1fb6"]
+[sub_resource type="Resource" id="Resource_u4024"]
 script = ExtResource("8_or6k3")
 rotation = Vector3(0, 360, 0)
 snap_angle = Vector3(0, 0, 0)
@@ -116,7 +116,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_l5w1d"]
+[sub_resource type="Resource" id="Resource_p3y4b"]
 script = ExtResource("6_h4mb6")
 iterations = 1
 offset_step = 0.2
@@ -128,7 +128,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6pr8g"]
+[sub_resource type="Resource" id="Resource_ubiae"]
 script = ExtResource("7_dnc1m")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 1.0
@@ -144,9 +144,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_c183d"]
+[sub_resource type="Resource" id="Resource_wxfiv"]
 script = ExtResource("4_a8lba")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_bgu5e"), SubResource("Resource_s1fb6"), SubResource("Resource_l5w1d"), SubResource("Resource_6pr8g")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fg7hr"), SubResource("Resource_u4024"), SubResource("Resource_p3y4b"), SubResource("Resource_ubiae")])
 
 [sub_resource type="Resource" id="Resource_4aupn"]
 script = ExtResource("10_ui53w")
@@ -199,6 +199,7 @@ size = Vector2(0.1, 0.1)
 
 [node name="MainMenu" type="Node" node_paths=PackedStringArray("scatter_nodes")]
 script = ExtResource("1_6n2oj")
+show_mouse = true
 scatter_nodes = [NodePath("Island/TreeScatter"), NodePath("Island/GrassScatter")]
 
 [node name="Island" type="Node3D" parent="."]
@@ -220,7 +221,7 @@ environment = SubResource("Environment_2e0by")
 
 [node name="TreeScatter" type="Node3D" parent="Island"]
 script = ExtResource("3_1ptfy")
-modifier_stack = SubResource("Resource_uvrq3")
+modifier_stack = SubResource("Resource_xvixy")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -235,7 +236,7 @@ shape = SubResource("Resource_mei8b")
 
 [node name="GrassScatter" type="Node3D" parent="Island"]
 script = ExtResource("3_1ptfy")
-modifier_stack = SubResource("Resource_c183d")
+modifier_stack = SubResource("Resource_wxfiv")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

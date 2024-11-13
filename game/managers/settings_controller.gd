@@ -1,0 +1,91 @@
+extends Node
+
+const SAVE_PATH = "user://settings.tres"
+
+var settings_resource : SettingsReource
+
+func _enter_tree() -> void:
+	EventSystem.SET_music_volume_change.connect(music_volume_changed)
+	EventSystem.SET_sfx_volume_change.connect(sfx_volume_changed)
+	EventSystem.SET_res_scale_change.connect(res_scale_changed)
+	EventSystem.SET_ssaa_change.connect(ssaa_changed)
+	EventSystem.SET_fullscreen_change.connect(fullscreen_changed)
+	EventSystem.SET_ask_setting_resource.connect(send_setting_resource)
+	
+	EventSystem.SET_save_settings.connect(save_settings)
+
+func _ready() -> void:
+	loading_setting()
+	apply_setting()
+
+func loading_setting() -> void:
+	if FileAccess.file_exists(SAVE_PATH):
+		settings_resource = ResourceLoader.load(SAVE_PATH,"SettingsReource")
+	
+	if settings_resource == null:
+		settings_resource = SettingsReource.new()
+	
+
+func save_settings() -> void:
+	ResourceSaver.save(settings_resource, SAVE_PATH)
+	
+
+func apply_setting() -> void:
+	apply_music_volume(settings_resource.music_volume)
+	apply_sfx_volume(settings_resource.sfx_volume)
+	apply_res_scale(settings_resource.res_scale)
+	apply_ssaa(settings_resource.ssaa_enabled)
+	apply_fullscreen(settings_resource.full_screen_enabled)
+
+func send_setting_resource(target_callable : Callable) -> void:
+	target_callable.call(settings_resource)
+
+
+func music_volume_changed(volume_linear : float) -> void:
+	# This is from the Audio as seen below position 1 hence 1  
+	settings_resource.music_volume = volume_linear
+	#We moved this to allow for saves and loads for the volume other
+	# follow the same pattern, I kept the original as a reminder
+	#AudioServer.set_bus_volume_db(1, linear_to_db(volume_linear))
+	apply_music_volume(volume_linear)
+
+func apply_music_volume(volume_linear : float) -> void:
+	AudioServer.set_bus_volume_db(1, linear_to_db(volume_linear))
+
+
+func sfx_volume_changed(volume_linear : float) -> void:
+	# This is from the Audio as seen below position 2 hence 2  
+	settings_resource.sfx_volume = volume_linear
+	apply_sfx_volume(volume_linear)
+	
+func apply_sfx_volume(volume_linear : float) -> void:
+	AudioServer.set_bus_volume_db(2, linear_to_db(volume_linear))
+
+
+func res_scale_changed(scale : float) -> void:
+	settings_resource.res_scale = scale
+	apply_res_scale(scale)
+
+func apply_res_scale(scale : float) -> void:
+	get_viewport().set_scaling_3d_scale(scale)
+
+
+
+func ssaa_changed(enabled : bool) -> void:
+	settings_resource.ssaa_enabled = enabled
+	apply_ssaa(enabled)
+
+func apply_ssaa(enabled : bool) -> void:
+	get_viewport().set_screen_space_aa(
+		Viewport.SCREEN_SPACE_AA_FXAA if enabled else Viewport.SCREEN_SPACE_AA_DISABLED
+	)
+
+
+func fullscreen_changed(enabled : bool) -> void:
+	settings_resource.full_screen_enabled = enabled
+	apply_fullscreen(enabled)
+
+func apply_fullscreen(enabled : bool) -> void:
+	DisplayServer.window_set_mode(
+		DisplayServer.WINDOW_MODE_FULLSCREEN if enabled else DisplayServer.WINDOW_MODE_WINDOWED
+		)

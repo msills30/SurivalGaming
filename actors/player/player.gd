@@ -126,7 +126,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.PauseMenu)
-		set_freeze(true)
 	
 	elif event.is_action_pressed('open_crafting_menu'):
 		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.CraftingMenu)

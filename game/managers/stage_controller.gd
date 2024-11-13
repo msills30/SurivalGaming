@@ -24,11 +24,7 @@ func start_stage_change_sequence(stage_key: StageConfig.Keys) -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	EventSystem.Gam_fade_in.emit(FADE_TIME, game_faded_in.bind(stage_key))
-	
-	var new_stage:Node = StageConfig.get_stage(stage_key)
-	add_child(new_stage)
-	
+	EventSystem.Gam_fade_in.emit(FADE_TIME, game_faded_in.bind(stage_key),true)
 	
 
 func game_faded_in(stage_key: StageConfig.Keys) -> void:
@@ -38,3 +34,17 @@ func game_faded_in(stage_key: StageConfig.Keys) -> void:
 	EventSystem.BUL_remove_all_bulletins.emit()
 	
 	thread.start(load_stage.bind(stage_key))
+
+func load_stage(stage_key: StageConfig.Keys) -> void:
+	var new_stage := StageConfig.get_stage(stage_key)
+	call_deferred("add_child", new_stage)
+	new_stage.loading_complete.connect(loading_complete)
+	call_deferred("join_thread")
+	
+
+func join_thread() -> void:
+	thread.wait_to_finish()
+
+func loading_complete() -> void:
+	EventSystem.Gam_fade_out.emit(FADE_TIME)
+	is_stage_changing = false
