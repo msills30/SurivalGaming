@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://cufy4it04im5b"]
+[gd_resource type="VisualShader" load_steps=22 format=3 uid="uid://cufy4it04im5b"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bthp1"]
 input_name = "time"
@@ -70,6 +70,11 @@ input_name = "normal"
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_6g5rc"]
 input_name = "vertex"
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_yhm4k"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0.3, 0.3, 0.3, 0.3)]
+op_type = 2
+operator = 2
+
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
@@ -95,6 +100,11 @@ void vertex() {
 	vec4 n_out3p0 = texture(tex_vtx_3, n_out2p0);
 
 
+// VectorOp:8
+	vec4 n_in8p1 = vec4(0.30000, 0.30000, 0.30000, 0.30000);
+	vec4 n_out8p0 = n_out3p0 * n_in8p1;
+
+
 // Input:6
 	vec3 n_out6p0 = NORMAL;
 
@@ -104,7 +114,7 @@ void vertex() {
 
 
 // MultiplyAdd:5
-	vec4 n_out5p0 = (n_out3p0 * vec4(n_out6p0, 0.0)) + vec4(n_out7p0, 0.0);
+	vec4 n_out5p0 = fma(n_out8p0, vec4(n_out6p0, 0.0), vec4(n_out7p0, 0.0));
 
 
 // Output:0
@@ -173,7 +183,7 @@ void fragment() {
 
 }
 "
-nodes/vertex/0/position = Vector2(680, 100)
+nodes/vertex/0/position = Vector2(880, 40)
 nodes/vertex/2/node = SubResource("VisualShaderNodeUVFunc_qm5x6")
 nodes/vertex/2/position = Vector2(-180, 40)
 nodes/vertex/3/node = SubResource("VisualShaderNodeTexture_y4mpe")
@@ -181,12 +191,14 @@ nodes/vertex/3/position = Vector2(100, 20)
 nodes/vertex/4/node = SubResource("VisualShaderNodeInput_3y7oc")
 nodes/vertex/4/position = Vector2(-520, 40)
 nodes/vertex/5/node = SubResource("VisualShaderNodeMultiplyAdd_uswaw")
-nodes/vertex/5/position = Vector2(380, 200)
+nodes/vertex/5/position = Vector2(600, 140)
 nodes/vertex/6/node = SubResource("VisualShaderNodeInput_21mfx")
 nodes/vertex/6/position = Vector2(-20, 280)
 nodes/vertex/7/node = SubResource("VisualShaderNodeInput_6g5rc")
 nodes/vertex/7/position = Vector2(0, 360)
-nodes/vertex/connections = PackedInt32Array(4, 0, 2, 2, 2, 0, 3, 0, 3, 0, 5, 0, 5, 0, 0, 0, 6, 0, 5, 1, 7, 0, 5, 2)
+nodes/vertex/8/node = SubResource("VisualShaderNodeVectorOp_yhm4k")
+nodes/vertex/8/position = Vector2(380, -20)
+nodes/vertex/connections = PackedInt32Array(4, 0, 2, 2, 2, 0, 3, 0, 5, 0, 0, 0, 6, 0, 5, 1, 7, 0, 5, 2, 3, 0, 8, 0, 8, 0, 5, 0)
 nodes/fragment/0/position = Vector2(1160, 140)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_mmbde")
 nodes/fragment/2/position = Vector2(-160, -260)

@@ -1,5 +1,5 @@
 extends Resource
-class_name SettingsReource
+class_name SettingsResource
 
 #For this to save properly we must use the export variable 
 @export var music_volume := 1

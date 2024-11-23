@@ -17,3 +17,7 @@ func energy_updated(max_energy : float, current_energy : float) -> void:
 func health_updated(max_health : float, current_health : float) -> void:
 	health_bar.max_value = max_health
 	health_bar.value = current_health
+	
+	if current_health <= 0:
+		EventSystem.PLA_freeze_player.emit()
+		EventSystem.STA_change_stage.emit(StageConfig.Keys.MainMenu)

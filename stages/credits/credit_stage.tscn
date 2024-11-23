@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://bt4tb5dhlaq0t"]
+
+[ext_resource type="PackedScene" uid="uid://qulejksieuca" path="res://meshes/water.tscn" id="1_2yp30"]
+[ext_resource type="Script" path="res://stages/credits/credit_stage.gd" id="1_myrum"]
+[ext_resource type="PackedScene" uid="uid://5xl1c6mvuj5n" path="res://meshes/raft.tscn" id="2_gn63i"]
+[ext_resource type="Script" path="res://game/shaking_camera.gd" id="3_yyn07"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e1hei"]
+sky_top_color = Color(0.443946, 0.83828, 1, 1)
+sky_horizon_color = Color(0.694406, 0.811737, 0.889801, 1)
+ground_horizon_color = Color(0.694118, 0.811765, 0.890196, 1)
+
+[sub_resource type="Sky" id="Sky_6c1bq"]
+sky_material = SubResource("ProceduralSkyMaterial_e1hei")
+
+[sub_resource type="Environment" id="Environment_1tytb"]
+background_mode = 2
+sky = SubResource("Sky_6c1bq")
+ambient_light_color = Color(0.443137, 0.839216, 1, 1)
+ambient_light_sky_contribution = 0.5
+
+[sub_resource type="Animation" id="Animation_5oepv"]
+resource_name = "credits_animation"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 6.1, 9, 10, 13, 14.1, 17, 18, 21, 22.1, 25, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5, 10, 13, 18, 21, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Game by Marquis Sills", "Game by Marquis Sills", "Audio By Zapsplats", "Audio By Zapsplats", "Animals By Quaternius", "test"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(30),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"exit_menu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4r2uw"]
+_data = {
+"credits_animation": SubResource("Animation_5oepv")
+}
+
+[node name="CreditStage" type="Node"]
+script = ExtResource("1_myrum")
+music_to_play = 2
+
+[node name="Water" parent="." instance=ExtResource("1_2yp30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Raft" parent="." instance=ExtResource("2_gn63i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189193, 0)
+
+[node name="CameraHolder" type="Node3D" parent="Raft"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.7, 0.7, -0.2)
+
+[node name="ShakingCamera" type="Camera3D" parent="Raft/CameraHolder"]
+script = ExtResource("3_yyn07")
+noise_speed = 4.0
+noise_multiplier = 0.15
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.453994, 0.891005, 0, -0.891005, 0.453994, 0, 0, 0)
+light_color = Color(1, 0.996078, 0.490196, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1tytb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4r2uw")
+}
+autoplay = "credits_animation"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -156.0
+offset_right = 59.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -156.0
+offset_right = 59.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1

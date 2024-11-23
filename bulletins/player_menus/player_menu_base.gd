@@ -25,6 +25,9 @@ func _ready() -> void:
 		hotbarslot_slot.mouse_exited.connect(hide_item_info)
 	
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
+	
+	%ScrapSlot.item_scrapped.connect(hide_item_info)
+
 
 
 func close() -> void:
@@ -53,4 +56,5 @@ func hide_item_info() -> void:
 func update_inventory(inventory : Array) -> void:
 	for i in inventory.size():
 		inventory_grid_container.get_child(i).set_item_key(inventory[i])
+	
 	

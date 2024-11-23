@@ -36,6 +36,7 @@ transform = Transform3D(0.243046, -0.0130268, 0.969927, -0.962072, -0.130932, 0.
 
 [node name="HitBox" parent="." index="2"]
 hit_audio_key = 7
+hit_particles_key = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)

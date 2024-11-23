@@ -4,6 +4,7 @@ signal register_hit
 
 
 @export var hit_audio_key := SFXConfig.Keys.TreeHit
+@export var hit_particles_key := VFXConfig.Keys.HitParticlesWood
 
 func take_hit(weapon_item_resource : WeaponItemResource) -> void:
 	register_hit.emit(weapon_item_resource)

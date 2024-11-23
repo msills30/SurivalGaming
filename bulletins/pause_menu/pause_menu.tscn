@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba70trsm1vfyt"]
+[gd_scene load_steps=7 format=3 uid="uid://ba70trsm1vfyt"]
 
 [ext_resource type="Theme" uid="uid://6aavhiaw1d6l" path="res://resources/default_font_ui.tres" id="1_7cxrc"]
 [ext_resource type="PackedScene" uid="uid://dc6mahoy1datr" path="res://bulletins/fading_bulletin/fading_bulletin_template.tscn" id="1_othp0"]
 [ext_resource type="Script" path="res://bulletins/pause_menu/pause_menu.gd" id="2_4q66u"]
+[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="4_5sbaj"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_qcgdp"]
 device = -1
@@ -34,6 +35,7 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Resume
 "
+script = ExtResource("4_5sbaj")
 
 [node name="SettingButton" type="Button" parent="VBoxContainer" index="1"]
 layout_mode = 2
@@ -41,6 +43,7 @@ size_flags_horizontal = 4
 focus_mode = 0
 text = "Settings
 "
+script = ExtResource("4_5sbaj")
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" index="2"]
 layout_mode = 2
@@ -48,6 +51,7 @@ size_flags_horizontal = 4
 focus_mode = 0
 text = "Exit
 "
+script = ExtResource("4_5sbaj")
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]

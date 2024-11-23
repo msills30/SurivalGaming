@@ -2,15 +2,15 @@ extends Node
 
 const SAVE_PATH = "user://settings.tres"
 
-var settings_resource : SettingsReource
+var settings_resource : SettingsResource
 
 func _enter_tree() -> void:
-	EventSystem.SET_music_volume_change.connect(music_volume_changed)
-	EventSystem.SET_sfx_volume_change.connect(sfx_volume_changed)
-	EventSystem.SET_res_scale_change.connect(res_scale_changed)
-	EventSystem.SET_ssaa_change.connect(ssaa_changed)
-	EventSystem.SET_fullscreen_change.connect(fullscreen_changed)
-	EventSystem.SET_ask_setting_resource.connect(send_setting_resource)
+	EventSystem.SET_music_volume_changed.connect(music_volume_changed)
+	EventSystem.SET_sfx_volume_changed.connect(sfx_volume_changed)
+	EventSystem.SET_res_scale_changed.connect(res_scale_changed)
+	EventSystem.SET_ssaa_changed.connect(ssaa_changed)
+	EventSystem.SET_fullscreen_changed.connect(fullscreen_changed)
+	EventSystem.SET_ask_settings_resource.connect(send_setting_resource)
 	
 	EventSystem.SET_save_settings.connect(save_settings)
 
@@ -20,10 +20,10 @@ func _ready() -> void:
 
 func loading_setting() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
-		settings_resource = ResourceLoader.load(SAVE_PATH,"SettingsReource")
+		settings_resource = ResourceLoader.load(SAVE_PATH,"SettingsResource")
 	
 	if settings_resource == null:
-		settings_resource = SettingsReource.new()
+		settings_resource = SettingsResource.new()
 	
 
 func save_settings() -> void:

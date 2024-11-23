@@ -1,8 +1,7 @@
 extends Node
 
-var bulletins := {
-	
-}
+var bulletins := {}
+
 func _enter_tree() -> void:
 	EventSystem.BUL_create_bulletin.connect(create_bulletin)
 	EventSystem.BUL_destroy_bulletin.connect(destroy_bulletin)

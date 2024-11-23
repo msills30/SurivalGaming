@@ -4795,6 +4795,7 @@ is_aggressive = true
 
 [node name="HitBox" parent="." index="1"]
 hit_audio_key = 10
+hit_particles_key = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0"]
 transform = Transform3D(1, 0, 0, 0, -0.19283, -0.981232, 0, 0.981232, -0.19283, -1.46212e-08, 0.519246, -0.13061)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://gt5mq2q0p82p"]
+[gd_scene load_steps=16 format=3 uid="uid://gt5mq2q0p82p"]
 
 [ext_resource type="Script" path="res://bulletins/player_menus/player_menu_base.gd" id="1_l7wxq"]
 [ext_resource type="Texture2D" uid="uid://e7xkgehpbb5i" path="res://textures/panelInset_beige.png" id="1_m5joo"]
 [ext_resource type="Texture2D" uid="uid://d1rhnomeyygy2" path="res://textures/cross.png" id="2_7vyxf"]
 [ext_resource type="PackedScene" uid="uid://bqjwjclfqhykf" path="res://ui/custom_nodes/inventory_slot.tscn" id="2_1673i"]
 [ext_resource type="Texture2D" uid="uid://b3kcqfmoo3hn3" path="res://textures/panelInset_brown.png" id="3_tj6kf"]
+[ext_resource type="Texture2D" uid="uid://by0dcryudrg1k" path="res://textures/panel_brown.png" id="4_o7ycp"]
+[ext_resource type="Script" path="res://ui/custom_nodes/scrap_item_slot.gd" id="5_bqoho"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7su2"]
 
@@ -210,6 +212,34 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+
+[node name="ScrapSlot" type="TextureRect" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("4_o7ycp")
+expand_mode = 1
+script = ExtResource("5_bqoho")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer/HBoxContainer/ScrapSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer/HBoxContainer/ScrapSlot/MarginContainer"]
+modulate = Color(0.917647, 0.00392157, 0.133333, 1)
+layout_mode = 2
+texture = ExtResource("2_7vyxf")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

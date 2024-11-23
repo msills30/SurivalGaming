@@ -6,3 +6,5 @@
 script = ExtResource("1_4txml")
 
 [node name="ObjectHolder" type="Node3D" parent="."]
+
+[node name="ConstructableHolder" type="Node3D" parent="."]

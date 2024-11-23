@@ -25,7 +25,6 @@ func initialize(extra_arg) -> void:
 func _ready() -> void:
 	starting_cooking_slot.mouse_entered.connect(show_item_info.bind(starting_cooking_slot))
 	starting_cooking_slot.mouse_exited.connect(hide_item_info)
-	
 	final_cooking_slot.mouse_entered.connect(show_item_info.bind(final_cooking_slot))
 	final_cooking_slot.mouse_exited.connect(hide_item_info)
 	

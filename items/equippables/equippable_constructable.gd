@@ -57,10 +57,11 @@ func try_to_construct() -> void:
 	EventSystem.EQU_delete_equip_item.emit()
 	constructable_area.hide()
 	set_process(false)
-	var tform := Transform3D(Basis(), constructable_area.global_position)
+	#var tform := Transform3D(Basis(), constructable_area.global_position)
 	EventSystem.SPA_spawn_scene.emit(
 		ItemConfig.get_constructable_scene(constructable_item_key),
-		tform
+		constructable_area.global_transform,
+		true
 	)
 	is_constructing = true
 	

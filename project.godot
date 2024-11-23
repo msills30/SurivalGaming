@@ -101,8 +101,9 @@ use_item={
 3d_physics/layer_5="big_rigid_pickuppable"
 3d_physics/layer_6="small_rigid_pickuppable"
 3d_physics/layer_7="static_body"
+3d_physics/layer_8="water"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method.mobile="forward_plus"
+renderer/rendering_method.web="forward_plus"

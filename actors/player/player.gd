@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var jump_velocity := 4.0
 @export var gravity_speed = 0.2
 @export var mouse_sensitivity = 0.005
-@export var walking_energy_change_per_1m := -.5
+@export var walking_energy_change_per_1m := -0.05
 @export var walking_step_audio_interval := 0.6
 @export var sprint_audio_interval := 0.3
 

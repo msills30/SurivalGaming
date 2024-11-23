@@ -19,6 +19,7 @@ bg_color = Color(0, 0, 0, 0.352941)
 bg_color = Color(0.32549, 0.32549, 0.32549, 1)
 
 [node name="CookingMenu" instance=ExtResource("1_1cmfr")]
+z_index = 0
 script = ExtResource("2_mjryf")
 
 [node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/UtlityNinePatchRect/MarginContainer/VBoxContainer/NinePatchRect" index="0"]

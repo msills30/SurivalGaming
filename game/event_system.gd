@@ -33,6 +33,7 @@ signal EQU_active_hotbar_slot_updated
 signal EQU_delete_equip_item
 
 signal SPA_spawn_scene
+signal SPA_spawn_vfx
 
 signal SFX_play_sfx
 signal SFX_play_dynamic_sfx
@@ -42,15 +43,16 @@ signal MUS_play_music
 signal GAM_fast_forward_day_night_anim
 signal Gam_fade_in
 signal Gam_fade_out
+signal Game_update_nav_mesh
 
 signal HUD_hide_hud
 signal HUD_show_hud
 
-signal SET_music_volume_change
-signal SET_sfx_volume_change
-signal SET_res_scale_change
-signal SET_ssaa_change
-signal SET_fullscreen_change
-signal SET_ask_setting_resource
+signal SET_music_volume_changed
+signal SET_sfx_volume_changed
+signal SET_res_scale_changed
+signal SET_ssaa_changed
+signal SET_fullscreen_changed
+signal SET_ask_settings_resource
 signal SET_save_settings
 

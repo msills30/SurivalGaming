@@ -30,6 +30,10 @@ func check_hit() -> void:
 	if not result.is_empty():
 		result.collider.take_hit(weapon_item_resource)
 		
+		EventSystem.SPA_spawn_vfx.emit(
+			VFXConfig.get_vfx(result.collider.hit_particles_key),
+			Transform3D(Basis(), result.position)
+		)
 
 func play_swoosh_audio() -> void:
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.WeaponSwoosh)

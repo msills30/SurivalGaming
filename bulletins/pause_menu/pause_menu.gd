@@ -15,6 +15,8 @@ func _ready() -> void:
 	
 	get_tree().paused = true
 	
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
+	
 	super()
 
 
